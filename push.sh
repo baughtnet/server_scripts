@@ -2,31 +2,30 @@
 
 # Prompt user for input
 read -p "Enter the local path to copy from: " LOCAL_PATH
-read -p "Enter the remote path to copy to: " REMOTE_PATH
+read -p "Enter the relative remote path to copy to: " RELATIVE_REMOTE_PATH
 read -p "Enter the username to use: " USERNAME
 read -p "Enter a comma-separated list of hosts: " HOSTS_INPUT
 
-# Check if the local path exists
-if [ ! -e "$LOCAL_PATH" ]; then
-    echo "Error: Local path not found - $LOCAL_PATH"
-    exit 1
-fi
-
-# Check if the host file exists
-if [ ! -e "$HOST_FILE" ]; then
-    echo "Error: Host file not found - $HOST_FILE"
-    exit 1
+# Check if multiple hosts were entered
+if [ "$HOSTS_INPUT >= 12" ]; then
+    FULL_REMOTE_PATH="${USERNAME}@${HOSTS_INPUT}:${RELATIVE_REMOTE_PATH}"
+    echo "Copying $LOCAL_PATH on your local machine to $RELATIVE_REMOTE_PATH on the remote host $HOSTS_INPUT..."
+    rsync -avz "$LOCAL_PATH" "$FULL_REMOTE_PATH"
+    echo "Done!"
+    exit 0
 fi
 
 # Split the input into an array of hosts
 IFS=', ' read -ra HOSTS <<< "$HOSTS_INPUT"
 
 # Loop through each host and use rsync to copy the file
-
 for HOST in "${HOSTS[@]}"
 do
-    echo "Copying $LOCAL_PATH to $USERNAME@$HOST:$REMOTE_PATH..."
-    rsync -avz "$LOCAL_PATH" "$USERNAME@$HOST:$REMOTE_PATH"
+    # Construct the full remote path by concatenating the home directory and the relative path
+    FULL_REMOTE_PATH="${USERNAME}@${HOST}:${RELATIVE_REMOTE_PATH}"
+    
+    echo "Copying $LOCAL_PATH to $FULL_REMOTE_PATH..."
+    rsync -avz "$LOCAL_PATH" "$FULL_REMOTE_PATH"
 done
 
 echo "Done!"
