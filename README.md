@@ -11,7 +11,7 @@ In order to use tmux in the server_scripts repository, you need to clone the Tmu
 
 NEOVIM CONFIGURATION
 
-Written from scratch, in order to use:
+In order to use:
 
   Start by cloning the repository to a directory on your computer.
     
