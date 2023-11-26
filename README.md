@@ -11,8 +11,16 @@ In order to use tmux in the server_scripts repository, you need to clone the Tmu
 
 NEOVIM CONFIGURATION
 
-In order to use the provided neovim config, start with an installation of at least neovim 0.8.0.
-Then install kickstart.nvim with - "# on Linux and Mac
-git clone https://github.com/nvim-lua/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim"
-This will work for MacOS and Linux, see https://github.com/nvim-lua/kickstart.nvim for other OS
-
+Written from scratch, in order to use:
+  Clone repo to a directory on your computer.
+    2.  Ensure you have a bare neovim with no config, there should be nothing in
+                "~/.config/nvim"
+            No nvim directory is fine
+    3.  Copy the init.lua file adn the lua/ and plugin/ directories, but not the after/ directory f
+    4.  Clone the packer.nvim
+            for most Linux/Unix Installations:
+                git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+    5.  run "nvim"
+    6.  Once loaded run ":PackerSync"
+    7.  Quit Nvim and copy the after directory from the git repo to your local nvim config
