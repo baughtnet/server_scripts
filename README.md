@@ -19,8 +19,14 @@ Written from scratch, in order to use:
     3.  Copy the init.lua file adn the lua/ and plugin/ directories, but not the after/ directory f
     4.  Clone the packer.nvim
             for most Linux/Unix Installations:
-                git clone --depth 1 https://github.com/wbthomason/packer.nvim\
- ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-    5.  run "nvim"
+    
+    git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+    ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+    ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+
+    5.  run
+
+    "nvim"
+ 
     6.  Once loaded run ":PackerSync"
     7.  Quit Nvim and copy the after directory from the git repo to your local nvim config
