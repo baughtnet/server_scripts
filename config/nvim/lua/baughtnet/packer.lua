@@ -8,7 +8,30 @@ return require('packer').startup(function(use)
   use {
   'nvim-telescope/telescope.nvim', tag = '0.1.4',
   requires = { {'nvim-lua/plenary.nvim'} }
-}
+  }
+
+  use {
+    'lewis6991/gitsigns.nvim',
+    config = function()
+      require('gitsigns').setup()
+    end
+  }
+
+  use {
+    'lukas-reineke/indent-blankline.nvim',
+    config = function()
+      vim.opt.termguicolors = true
+      vim.cmd [[highlight IndentBlanklineIndent1 guibg=#1f1f1f gui=nocombine]]
+      require("indent_blankline").setup {
+        -- char = '▏',
+        char = '│',
+        show_trailing_blankline_indent = false,
+        show_first_indent_level = true,
+        use_treesitter = true,
+      }
+      end
+    }
+
   use {
     -- theme
    'rmehri01/onenord.nvim',
@@ -30,6 +53,38 @@ return require('packer').startup(function(use)
     end
     }
 
+  -- setup which-key
+  use {
+    "folke/which-key.nvim",
+    config = function()
+      vim.o.timeout = true
+      vim.o.timeoutlen = 300
+      require("which-key").setup {
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      }
+    end
+  }
+
+
+  use {
+    'VonHeikemen/lsp-zero.nvim',
+    branch = 'v3.x',
+    requires = {
+      --- Uncomment these if you want to manage LSP servers from neovim
+      {'williamboman/mason.nvim'},
+      {'williamboman/mason-lspconfig.nvim'},
+
+      -- LSP Support
+      {'neovim/nvim-lspconfig'},
+      -- Autocompletion
+      {'hrsh7th/nvim-cmp'},
+      {'hrsh7th/cmp-nvim-lsp'},
+      {'L3MON4D3/LuaSnip'},
+    }
+  }
+
 
 -- general plugins
 -- treesitter
@@ -46,9 +101,7 @@ use('tpope/vim-sleuth')
 -- lualina and icons
 use('nvim-lualine/lualine.nvim')
 use('nvim-tree/nvim-web-devicons')
--- mason.nvim, lsp and other formatting plugins
-use('williamboman/mason.nvim')
-use('williamboman/mason-lspconfig.nvim')
+-- formatting
 use('numToStr/Comment.nvim')
-use('lukas-reineke/indent-blankline.nvim')
+
 end)

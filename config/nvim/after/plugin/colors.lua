@@ -21,10 +21,9 @@ require("onenord").setup({
   inverse = {
     match_paren = false,
   },
-  CodeiumSuggestion = "#fc3d03",
-  custom_highlights = {
-    -- CodeiumSuggestion = "#fc3d03",
-  }, -- Overwrite default highlight groups
-  custom_colors = {
-}, -- Overwrite default colors
+  custom_highlights = {}, -- Overwrite default highlight groups
+  custom_colors = {}, -- Overwrite default colors
 })
+
+-- set hightlight color for codeium suggestions
+vim.cmd([[highlight CodeiumSuggestion guifg=#fc3d03 ctermfg=8]])

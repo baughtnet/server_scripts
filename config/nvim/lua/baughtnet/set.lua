@@ -1,6 +1,3 @@
--- set hightlight color for codeium suggestions
-vim.api.nvim_set_hl(0, "CodeiumSuggestion", { fg = "#fc3d03" })
-
 -- highlight on yank
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 vim.api.nvim_create_autocmd('TextYankPost', {
@@ -12,6 +9,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 -- vim.opt.guicursor = ""
+vim.opt.completeopt = "menuone,noselect"
 
 vim.opt.nu = true
 vim.opt.relativenumber = true
