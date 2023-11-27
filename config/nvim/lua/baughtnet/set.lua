@@ -1,3 +1,16 @@
+-- set hightlight color for codeium suggestions
+vim.api.nvim_set_hl(0, "CodeiumSuggestion", { fg = "#fc3d03" })
+
+-- highlight on yank
+local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
+vim.api.nvim_create_autocmd('TextYankPost', {
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+  group = highlight_group,
+  pattern = '*',
+})
+
 -- vim.opt.guicursor = ""
 
 vim.opt.nu = true
@@ -17,7 +30,7 @@ vim.opt.backup = false
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
 
-vim.opt.hlsearch = false
+vim.opt.hlsearch = false 
 vim.opt.incsearch = true
 
 vim.opt.termguicolors = true

@@ -13,11 +13,7 @@ vim.api.nvim_set_keymap('i', 'jk', '<Esc>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('i', 'kj', '<Esc>', { noremap = true, silent = true })
 
 -- map leader shortcut for netrw
--- vim.keymap.set('n', '<leader>pv', vim.cmd.Ex)
-
--- set leader shortcut to disable/enable codeium
-vim.keymap.set('n', '<leader>ce', vim.cmd.CodeiumEnable)
-vim.keymap.set('n', '<leader>cd', vim.cmd.CodeiumDisable)
+--vim.keymap.set('n', '<leader>pv', vim.cmd.Ex)
 
 -- map leader for oil
 vim.keymap.set("n", "-", "<CMD>Oil --float<CR>", { desc = "Open parent directory" })
@@ -37,10 +33,10 @@ vim.keymap.set('n', '<leader>w', vim.cmd.w)
 -- set leader shortcut to quit
 vim.keymap.set('n', '<leader>q', vim.cmd.q)
 
+-- set leader shortcut to write and quit
+vim.keymap.set('n', '<leader>WQ', vim.cmd.wq)
+
 -- set leader shortcut to write quit
-vim.keymap.set('n', '<leader>wq', vim.cmd.wq)
-
-
 -- allow moving blocks of selected text with J and K
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
@@ -62,7 +58,7 @@ vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 -- set leader x to chmod +x to current file
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
--- setup a vim copy paste
-vim.api.nvim_set_keymap('n', '<leader>tc', [[:write !tmux load-buffer -<CR><CR>]], { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>tp', [[:write !tmux save-buffer -<CR>]], { noremap = true, silent = true })
+-- setup a tmux copy paste
+-- vim.api.nvim_set_keymap('n', '<leader>tc', [[:write !tmux load-buffer -<CR><CR>]], { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('n', '<leader>tp', [[:write !tmux save-buffer -<CR>]], { noremap = true, silent = true })
 
