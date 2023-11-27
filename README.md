@@ -5,6 +5,8 @@ This is intended to to be a repo for configuration and scripts accross various d
 
 TMUX CONFIGURATION
 
+First atempt at configuring tmux
+
 In order to use tmux in the server_scripts repository, you need to clone the Tmux Plugin Manager repository to ~/.tmux/plugins/tpm.  You can run the command below or "./tmux_tpm.sh" in the tmux 
 
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
