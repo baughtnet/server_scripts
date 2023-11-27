@@ -8,6 +8,9 @@ if [ -d ~/.config/nvim ]; then
     rm -rf ~/.config/nvim
 fi
 
+# create nvim config directory
+mkdir -p ~/.config/nvim
+
 # check if packer is installed, if not install.  then move onto config
 if [ -d ~/.local/share/nvim/site/pack/packer/start/packer.nvim ]; then
     echo "Packer is already installed, continuing to configure neovim..."
@@ -36,5 +39,9 @@ nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 echo "Copying plugin config files..."
 # copy plugin config files
 cp -r after/ ~/.config/nvim
+
+# remove installation directory
+echo "Finalizing installation..."
+rm -rf ~/.baughtnet_nvim
 
 echo "neovim has been successfully configured, enjoy!"
