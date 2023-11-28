@@ -22,7 +22,7 @@ return require('packer').startup(function(use)
     config = function()
       vim.opt.termguicolors = true
       vim.cmd [[highlight IndentBlanklineIndent1 guibg=#1f1f1f gui=nocombine]]
-      require("indent_blankline").setup {
+      require("ibl").setup {
         -- char = '▏',
         char = '│',
         show_trailing_blankline_indent = false,
