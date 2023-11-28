@@ -20,14 +20,11 @@ return require('packer').startup(function(use)
   use {
     'lukas-reineke/indent-blankline.nvim',
     config = function()
-      vim.opt.termguicolors = true
-      vim.cmd [[highlight IndentBlanklineIndent1 guibg=#1f1f1f gui=nocombine]]
       require("ibl").setup {
-        -- char = '▏',
         char = '│',
-        show_trailing_blankline_indent = false,
+        show_trailing_blankline_indent = true,
         show_first_indent_level = true,
-        use_treesitter = true,
+        use_treesitter = false,
       }
       end
     }
