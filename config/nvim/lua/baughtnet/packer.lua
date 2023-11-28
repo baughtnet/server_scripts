@@ -18,18 +18,6 @@ return require('packer').startup(function(use)
   }
 
   use {
-    'lukas-reineke/indent-blankline.nvim',
-    config = function()
-      require("ibl").setup {
-        char = '│',
-        show_trailing_blankline_indent = true,
-        show_first_indent_level = true,
-        use_treesitter = false,
-      }
-      end
-    }
-
-  use {
     -- theme
    'rmehri01/onenord.nvim',
    config = function()
@@ -100,5 +88,6 @@ use('nvim-lualine/lualine.nvim')
 use('nvim-tree/nvim-web-devicons')
 -- formatting
 use('numToStr/Comment.nvim')
+use('lukas-reineke/indent-blankline.nvim')
 
 end)
