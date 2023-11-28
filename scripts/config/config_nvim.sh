@@ -8,6 +8,12 @@ if [ -d ~/.config/nvim ]; then
     rm -rf ~/.config/nvim
 fi
 
+# wipe ~/.local/share/nvim directory if present
+if [ -d ~/.local/share/nvim ]; then
+    echo "Removing more old nvim config..."
+    rm -rf ~/.local/share/nvim
+fi
+
 # create nvim config directory
 mkdir -p ~/.config/nvim
 
