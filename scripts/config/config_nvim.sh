@@ -33,16 +33,9 @@ cp -r nvim/ ~/.config/nvim
 mv ~/.config/nvim/after/ ~/.config/nvim/.after
 
 # echo "Installing plugins..."
-# run neovim to and :PackerSync to install plugins
-# should exit on completion
-#  nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
-
-# 
-# mv ~/.config/nvim/.after/ ~/.config/nvim/after
-
-# echo "Copying plugin config files..."
-# copy plugin config files
-# cp -r after/ ~/.config/nvim
+run neovim to and :PackerSync to install plugins
+should exit on completion
+ nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 
 # remove installation directory
 echo "Finalizing installation..."
