@@ -9,7 +9,7 @@ if [ -d ~/.config/nvim ]; then
 fi
 
 # create nvim config directory
-mkdir -p ~/.config/nvim
+# mkdir -p ~/.config/nvim
 
 # check if packer is installed, if not install.  then move onto config
 if [ -d ~/.local/share/nvim/site/pack/packer/start/packer.nvim ]; then
@@ -28,17 +28,21 @@ git clone -b v1 https://github.com/baughtnet/server_scripts.git
 
 echo "Configuring neovim..."
 # move to neovim config directory and copy neovim config
-cd server_scripts/config/nvim
-cp -r init.lua lua/ ~/.config/nvim
+cd server_scripts/config/
+cp -r nvim/ ~/.config/nvim
+mv ~/.config/nvim/after/ ~/.config/nvim/.after
 
-echo "Installing plugins..."
+# echo "Installing plugins..."
 # run neovim to and :PackerSync to install plugins
 # should exit on completion
-nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+#  nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 
-echo "Copying plugin config files..."
+# 
+# mv ~/.config/nvim/.after/ ~/.config/nvim/after
+
+# echo "Copying plugin config files..."
 # copy plugin config files
-cp -r after/ ~/.config/nvim
+# cp -r after/ ~/.config/nvim
 
 # remove installation directory
 echo "Finalizing installation..."

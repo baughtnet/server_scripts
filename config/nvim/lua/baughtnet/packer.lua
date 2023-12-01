@@ -18,21 +18,6 @@ return require('packer').startup(function(use)
   }
 
   use {
-    'lukas-reineke/indent-blankline.nvim',
-    config = function()
-      vim.opt.termguicolors = true
-      vim.cmd [[highlight IndentBlanklineIndent1 guibg=#1f1f1f gui=nocombine]]
-      require("indent_blankline").setup {
-        -- char = '▏',
-        char = '│',
-        show_trailing_blankline_indent = false,
-        show_first_indent_level = true,
-        use_treesitter = true,
-      }
-      end
-    }
-
-  use {
     -- theme
    'rmehri01/onenord.nvim',
    config = function()
@@ -103,5 +88,6 @@ use('nvim-lualine/lualine.nvim')
 use('nvim-tree/nvim-web-devicons')
 -- formatting
 use('numToStr/Comment.nvim')
+use('lukas-reineke/indent-blankline.nvim')
 
 end)
