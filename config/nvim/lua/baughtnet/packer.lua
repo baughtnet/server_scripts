@@ -18,11 +18,9 @@ return require('packer').startup(function(use)
   }
 
   use {
-    'lukas-reineke/indent-blankline.nvim',
-    config = function()
-      require("ibl").setup()
-    end
-    }
+    'nvim-telescope/telescope-file-browser.nvim',
+    requires = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim' }
+  }
 
   use {
     -- theme
@@ -77,10 +75,16 @@ return require('packer').startup(function(use)
     }
   }
 
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate',
+    depends = {
+      'nvim-treesitter/nvim-treesitter-textobjects',
+    }
+  }
 
 -- general plugins
 -- treesitter
-use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
 use('nvim-treesitter/playground')
 use('nvim-lua/plenary.nvim')
 -- harpoon
@@ -95,5 +99,6 @@ use('nvim-lualine/lualine.nvim')
 use('nvim-tree/nvim-web-devicons')
 -- formatting
 use('numToStr/Comment.nvim')
+use('lukas-reineke/indent-blankline.nvim')
 
 end)
