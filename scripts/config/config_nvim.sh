@@ -35,13 +35,13 @@ git clone -b v1 https://github.com/baughtnet/server_scripts.git
 echo "Configuring neovim..."
 # move to neovim config directory and copy neovim config
 cd server_scripts/config/
-cp -r nvim/ ~/.config/nvim
+cp -r nvim/ ~/.config/
 mv ~/.config/nvim/after/ ~/.config/nvim/.after
 
-# echo "Installing plugins..."
-run neovim to and :PackerSync to install plugins
-should exit on completion
- nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+echo "Installing plugins..."
+# run neovim to and :PackerSync to install plugins
+# should exit on completion
+nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 
 # remove installation directory
 echo "Finalizing installation..."
