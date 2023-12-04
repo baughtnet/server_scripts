@@ -57,6 +57,12 @@ return require('packer').startup(function(use)
     end
   }
 
+  use {
+    'ThePrimeagen/harpoon',
+    branch = 'harpoon2',
+    requires = {  {'nvim-lua/plenary.nvim'} }
+  }
+
 
   use {
     'VonHeikemen/lsp-zero.nvim',
@@ -88,7 +94,7 @@ return require('packer').startup(function(use)
 use('nvim-treesitter/playground')
 use('nvim-lua/plenary.nvim')
 -- harpoon
-use('ThePrimeagen/harpoon')
+-- use('ThePrimeagen/harpoon')
 --  undotree
 use('mbbill/undotree')
 -- tpope plugins
