@@ -28,6 +28,9 @@ cp ~/.baughtnet/server_scripts/config/tmux/.tmux.conf ~/.tmux.conf
 echo "Finalizing installation..."
 rm -rf ~/.baughtnet
 
+# clear screen before showing final instructions
+clear
+
 echo ""
 echo "________________________________________________________________"
 echo "Please follow the steps below to finalize your tmux config"
