@@ -78,14 +78,13 @@ return require('packer').startup(function(use)
       {'L3MON4D3/LuaSnip'},
     }
   }
-
-  use {
-    'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate',
-    depends = {
-      'nvim-treesitter/nvim-treesitter-textobjects',
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        run = function()
+            local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+            ts_update()
+        end,
     }
-  }
 
 -- general plugins
 -- treesitter
