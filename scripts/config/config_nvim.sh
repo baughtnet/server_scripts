@@ -44,7 +44,7 @@ mv ~/.config/nvim/after/ ~/.config/nvim/.after
 echo "Installing plugins..."
 # run neovim to and :PackerSync to install plugins
 # should exit on completion
-nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync' -c 'Codeium Disable'
 
 # rename .after directory to after for plugin config
 mv ~/.config/nvim/.after ~/.config/nvim/after
