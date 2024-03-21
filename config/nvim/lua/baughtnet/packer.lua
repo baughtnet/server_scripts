@@ -22,18 +22,18 @@ return require('packer').startup(function(use)
     requires = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim' }
   }
 
-  use {
-    'rebelot/kanagawa.nvim'
-  }
+  -- use {
+  --   'rebelot/kanagawa.nvim'
+  -- }
 
   -- changed theme to above kanagawa
-  -- use {
-    -- theme
-   -- 'rmehri01/onenord.nvim',
-   -- config = function()
-   --    require("onenord").setup()
-   --  end
-  -- }
+  use {
+    'rmehri01/onenord.nvim',
+    theme ='onenord',
+    config = function()
+      require("onenord").setup()
+    end
+  }
 
   use {
     'Exafunction/codeium.vim',
@@ -88,6 +88,7 @@ return require('packer').startup(function(use)
 
 -- general plugins
 -- treesitter
+use('christoomey/vim-tmux-navigator')
 use('nvim-treesitter/playground')
 use('nvim-lua/plenary.nvim')
 -- harpoon
